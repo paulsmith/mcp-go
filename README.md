@@ -1,10 +1,15 @@
 # Model Context Protocol (MCP) Go SDK Documentation
 
-The Model Context Protocol Go SDK is a comprehensive library for building MCP servers that can expose resources, tools, and prompts to MCP clients like Claude for Desktop and other MCP-compatible applications.
+The Model Context Protocol Go SDK is a comprehensive library for building MCP
+servers that can expose resources, tools, and prompts to MCP clients like
+Claude for Desktop and other MCP-compatible applications.
 
 ## Overview
 
-The Go MCP SDK implements the Model Context Protocol specification, allowing developers to create servers that expose functionality to AI models in a standardized way. The SDK handles all protocol-level communication, allowing you to focus on implementing your server's core capabilities.
+The Go MCP SDK implements the Model Context Protocol specification, allowing
+developers to create servers that expose functionality to AI models in a
+standardized way. The SDK handles all protocol-level communication, allowing
+you to focus on implementing your server's core capabilities.
 
 ## Installation
 
@@ -24,7 +29,8 @@ The SDK is built around several key components:
 
 ### MCPServer
 
-The `MCPServer` struct is the main entry point for creating MCP servers. It provides a simplified high-level API for common operations.
+The `MCPServer` struct is the main entry point for creating MCP servers. It
+provides a simplified high-level API for common operations.
 
 ```go
 // Create a new MCP server
@@ -33,11 +39,15 @@ server := mcp.NewMCPServer("MyServer", "1.0.0")
 
 ### Server
 
-The `Server` struct is the underlying implementation that handles protocol details. Most users should use `MCPServer` instead, but `Server` is available for advanced use cases.
+The `Server` struct is the underlying implementation that handles protocol
+details. Most users should use `MCPServer` instead, but `Server` is available
+for advanced use cases.
 
 ### Transport
 
-The `Transport` interface defines how messages are exchanged between the client and server. The SDK includes a `StdioTransport` implementation for standard I/O communication.
+The `Transport` interface defines how messages are exchanged between the client
+and server. The SDK includes a `StdioTransport` implementation for standard I/O
+communication.
 
 ## Key Features
 
@@ -176,7 +186,7 @@ import (
     "fmt"
     "os"
 
-    "github.com/modelcontextprotocol/go-sdk/mcp"
+    "github.com/paulsmith/mcp-go/mcp"
 )
 
 func main() {
@@ -445,24 +455,32 @@ type LoggingMessageParams struct {
 
 ## Best Practices
 
-1. **Error Handling**: Always handle errors properly in your resource, tool, and prompt handlers. Return meaningful error messages to help users understand issues.
+1. **Error Handling**: Always handle errors properly in your resource, tool,
+   and prompt handlers. Return meaningful error messages to help users
+   understand issues.
 
-2. **Context Usage**: Respect the context passed to handlers. Check for cancellation and propagate it appropriately.
+2. **Context Usage**: Respect the context passed to handlers. Check for
+   cancellation and propagate it appropriately.
 
-3. **Resource Organization**: Group related resources and provide clear descriptions to help users understand your server's capabilities.
+3. **Resource Organization**: Group related resources and provide clear
+   descriptions to help users understand your server's capabilities.
 
-4. **Input Validation**: Validate all inputs in your tool handlers to prevent unexpected behavior.
+4. **Input Validation**: Validate all inputs in your tool handlers to prevent
+   unexpected behavior.
 
-5. **Logging**: Use appropriate log levels to provide useful information without overwhelming clients.
+5. **Logging**: Use appropriate log levels to provide useful information
+   without overwhelming clients.
 
-6. **Security**: Only expose necessary functionality and validate all inputs to prevent security issues.
+6. **Security**: Only expose necessary functionality and validate all inputs to
+   prevent security issues.
 
 ## Troubleshooting
 
 ### Server not connecting to client
 
 - Ensure your server is properly configured with the correct name and version.
-- Check that you're using the transport compatible with your client (e.g., `StdioTransport` for Claude Desktop).
+- Check that you're using the transport compatible with your client (e.g.,
+  `StdioTransport` for Claude Desktop).
 - Verify your `claude_desktop_config.json` if using Claude Desktop.
 
 ### Tools or resources not appearing

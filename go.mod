@@ -1,3 +1,3 @@
-module github.com/paulsmith/mcpgo
+module github.com/paulsmith/mcp-go
 
 go 1.23.6
