@@ -476,3 +476,7 @@ type LoggingMessageParams struct {
 - Implement proper error handling in your tool handlers.
 - Return clear error messages that explain what went wrong.
 - Check input types and validate arguments before using them.
+
+## License
+
+[MIT](COPYING)
