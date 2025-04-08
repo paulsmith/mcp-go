@@ -14,7 +14,7 @@ you to focus on implementing your server's core capabilities.
 ## Installation
 
 ```bash
-go get github.com/paulsmith/mcp-go
+go get github.com/paulsmith/mcp-go@latest
 ```
 
 ## Usage
